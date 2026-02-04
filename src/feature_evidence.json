@@ -1,0 +1,21 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-update-the-decorative-heart-icon-image-used-on-the-page-shown-after-clicking-the-yes-button-valentinepage-so-the-icon-background-is-fully-transparent-no-visible-box-solid-background-and-the-icons-blend-cleanly-with-the-page-background",
+      "featureTitle": "Update the decorative heart icon image used on the page shown after clicking the “Yes” button (ValentinePage) so the icon background is fully transparent (no visible box/solid background) and the icons blend cleanly with the page background.",
+      "files": [],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

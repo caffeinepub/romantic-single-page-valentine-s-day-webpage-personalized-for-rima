@@ -1,0 +1,270 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 22,
+  "summary": "A React/Vite single-page Valentine’s Day experience personalized for “Rima”, built on an Internet Computer starter scaffold (Motoko backend placeholder + frontend infrastructure). The app first shows a Valentine question “gate” with Yes/No buttons (where the No button playfully avoids interaction), then transitions to a fully designed, static Valentine page with themed imagery, typography, and responsive Tailwind/shadcn styling.",
+  "existing_features": [
+    {
+      "id": "IF-1",
+      "title": "Internet Computer backend canister placeholder",
+      "synonyms": [
+        "Motoko backend scaffold",
+        "backend canister"
+      ],
+      "description": "Includes a Motoko canister entrypoint (actor) as part of an ICP starter layout, currently with no methods or state.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-2",
+      "title": "React + Vite frontend application bootstrap",
+      "synonyms": [
+        "Vite React SPA",
+        "frontend scaffold"
+      ],
+      "description": "Single-page React app mounted in index.html via main.tsx, with global CSS import and provider wiring.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-3",
+      "title": "Tailwind + shadcn/ui styling infrastructure",
+      "synonyms": [
+        "Tailwind theme",
+        "shadcn integration"
+      ],
+      "description": "Tailwind configuration and utility setup with shadcn/ui Button usage and a className merge helper (cn) based on clsx + tailwind-merge.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-4",
+      "title": "Romantic theme tokens, typography, and animations",
+      "synonyms": [
+        "OKLCH theme",
+        "romantic palette"
+      ],
+      "description": "Global CSS defines rose/cream OKLCH variables for light/dark modes, custom serif/sans font choices, and a fade-in animation used across pages.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-5",
+      "title": "Internet Identity authentication provider and hook",
+      "synonyms": [
+        "II auth context",
+        "useInternetIdentity"
+      ],
+      "description": "React Context provider for Internet Identity using @dfinity/auth-client with login/logout, persisted identity restoration, and status flags for UI state handling.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-6",
+      "title": "Backend actor creation hook with react-query caching",
+      "synonyms": [
+        "useActor",
+        "actor hook"
+      ],
+      "description": "Creates an anonymous or authenticated actor depending on the current identity, caches it with react-query, and invalidates/refetches dependent queries when the actor changes.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-7",
+      "title": "React Query provider wiring",
+      "synonyms": [
+        "tanstack query setup"
+      ],
+      "description": "App is wrapped in a QueryClientProvider to support react-query hooks (used by useActor and available for future queries).",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-8",
+      "title": "Static Valentine main page content (personalized for Rima)",
+      "synonyms": [
+        "ValentinePage",
+        "main Valentine letter page"
+      ],
+      "description": "Renders a full-screen romantic Valentine page with background image, hero headline, heartfelt letter section, closing message, and footer; includes responsive layout and decorative assets/icons.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-9",
+      "title": "Reusable section layout wrapper",
+      "synonyms": [
+        "SectionShell",
+        "section container"
+      ],
+      "description": "Provides consistent horizontal padding and centered max-width container for page sections.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-10",
+      "title": "Valentine question gate shown before the main page",
+      "synonyms": [
+        "question pre-screen",
+        "ValentineQuestionGatePage"
+      ],
+      "description": "Shows “Will you be my Valentine?” with themed visuals and Yes/No controls; drives entry into the main Valentine page via an onAnswer callback.",
+      "reqIds": [
+        "REQ-1",
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "IF-11",
+      "title": "Playful animated \"No\" button that avoids interaction",
+      "synonyms": [
+        "avoiding button",
+        "moving No button"
+      ],
+      "description": "A \"No\" button that moves to random safe viewport positions on hover/touch, changes label based on attempts, and only becomes clickable after enough attempts; uses a dedicated positioning hook to keep it within bounds.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "IF-12",
+      "title": "Gate-to-main-page transition after user selection",
+      "synonyms": [
+        "post-answer navigation",
+        "proceed to ValentinePage"
+      ],
+      "description": "Both “Yes” and (eventually catchable) “No” proceed to the existing ValentinePage without rewriting its content, implemented via App-level state switching.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "IF-13",
+      "title": "No-backend queries placeholder",
+      "synonyms": [
+        "useQueries placeholder"
+      ],
+      "description": "useQueries.ts is intentionally empty to indicate the Valentine experience is static and does not require backend querying.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-14",
+      "title": "Persistent gate progression using local storage",
+      "synonyms": [
+        "hasAnswered persistence",
+        "gate state persistence",
+        "StorageClient"
+      ],
+      "description": "Gate completion/answer state is persisted locally (via a StorageClient wrapper) so refreshing the page does not reset the user back to the Valentine question gate.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-15",
+      "title": "Additional generated gate decorative heart assets",
+      "synonyms": [
+        "gate-heart-top",
+        "gate-heart-bottom",
+        "gate decorative images"
+      ],
+      "description": "Adds additional generated decorative heart banner assets for the Valentine question gate UI.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-16",
+      "title": "Build/deploy template scaffold for ICP project export",
+      "synonyms": [
+        "build-template",
+        "deployment scaffold",
+        "icp.yaml + deploy scripts"
+      ],
+      "description": "Adds a dedicated build-template directory with Dockerfile, deployment scripts, workspace/package configs, canister YAMLs, and supporting tooling for exporting/building/deploying the app in a standardized ICP-friendly layout.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-17",
+      "title": "Additional transparent gate decorative heart assets",
+      "synonyms": [
+        "gate-heart-top-transparent",
+        "gate-heart-bottom-transparent",
+        "transparent gate banner images"
+      ],
+      "description": "Adds transparent variants of the generated decorative heart banner assets used in the Valentine question gate UI.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-18",
+      "title": "Generated heart icon set asset",
+      "synonyms": [
+        "heart-icons-set",
+        "generated heart icons"
+      ],
+      "description": "Adds a generated heart icon set image asset (256x256) under frontend/public/assets/generated for use in Valentine-themed UI decoration.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-decorative-heart-icon-image-used-on-the-page-shown-after-clicking-the-yes-button-valentinepage-so-the-icon-background-is-fully-transparent-no-visible-box-solid-background-and-the-icons-blend-cleanly-with-the-page-background",
+      "title": "Update the decorative heart icon image used on the page shown after clicking the “Yes” button (ValentinePage) so the icon background is fully transparent (no visible box/solid background) and the icons blend cleanly with the page background.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Remove the background from the heart icon images shown on the page that appears after clicking the “Yes” button (second/main page).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Keep the ValentinePage layout and existing asset references unchanged while applying the transparency fix (do not change the image src path, sizing, or spacing).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "status": "pending"
+    }
+  ],
+  "architectural_notes": [
+    "Frontend is a React SPA mounted via Vite, with top-level conditional rendering (state-based gating) instead of URL routing.",
+    "UI styling uses Tailwind CSS with CSS-variable design tokens (OKLCH palette) and shadcn/ui primitives; custom theme extends rose/cream palette, fonts, radii, and animations.",
+    "Internet Identity is implemented as a React Context provider (useInternetIdentity) with AuthClient initialization, persisted identity loading, and login/logout helpers.",
+    "Backend actor creation is abstracted behind a react-query cached hook (useActor) that recreates the actor when identity changes and invalidates/refetches other queries.",
+    "Interactive UI behavior is encapsulated as composable hooks/components (useAvoidingButtonPosition + PlayfulNoButton) with viewport-bounded random positioning to maintain usability on different screen sizes.",
+    "Static visual assets (background, wreath, icons) are served from public/ and used as decorative elements across pages.",
+    "Introduced a StorageClient utility to abstract local persistence (e.g., localStorage) for lightweight client-side state such as the gate progression.",
+    "Introduced a build-template export scaffold (Dockerfile/scripts/icp.yaml/workspace configs) to standardize building and deploying the project outside the working repo layout.",
+    "Build-template was expanded into a more complete reusable scaffold, including bundled shadcn/ui component sources, custom ESLint rules to enforce project patterns (e.g., Internet Identity provider usage, avoiding BigInt query keys), and helper scripts for image resizing/pruning."
+  ],
+  "known_issues": [
+    "Backend canister (backend/main.mo) is an empty actor; backend functionality is effectively not implemented/used for this Valentine page.",
+    "PlayfulNoButton uses fixed positioning after the first avoidance move; on very small viewports the approximated button dimensions (200x80) may still cause edge-cases where the button overlaps content or appears awkwardly placed.",
+    "Touch handling calls preventDefault() on touchstart, which can have side effects on mobile interactions (e.g., scrolling/gesture behavior) in some contexts.",
+    "Accessibility consideration: the moving “No” button may be challenging for keyboard-only users and assistive technologies; no explicit ARIA/live guidance is provided.",
+    "Heart icon assets on the page shown after clicking “Yes” still appear with a visible background; background removal is incomplete or not applied to all icons."
+  ],
+  "isFixRequest": true,
+  "imageRequirements": "## Edit Images\n- Remove the background to make it fully transparent (heart-icons-set.dim_256x256.png > heart-icons-set.dim_256x256.png)",
+  "generatedImages": [
+    {
+      "filename": "heart-icons-set.dim_256x256.png",
+      "description": "Remove the background to make it fully transparent",
+      "targetWidth": 256,
+      "targetHeight": 256
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Romantic single-page Valentine’s Day webpage personalized for Rima",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

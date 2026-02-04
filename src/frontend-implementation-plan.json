@@ -1,0 +1,37 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "ValentinePage heart icon transparency fix (static asset only)",
+  "requirements": [
+    {
+      "id": "REQ-5",
+      "summary": "Make the ValentinePage decorative heart icon PNG fully transparent so no background box is visible in light/dark overlays.",
+      "acceptanceCriteria": [
+        "On the ValentinePage (the page shown after clicking “Yes”), the decorative heart icon image renders with a transparent background (no solid/rectangular background visible).",
+        "Transparency is preserved in both light and dark mode overlays (no halo/solid matte around the image background)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/heart-icons-set.dim_256x256.png",
+          "operation": "modify",
+          "description": "Edit the existing PNG to remove any solid/matte background and preserve alpha transparency (keep the same filename and dimensions) so it blends cleanly with the ValentinePage background."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Ensure ValentinePage continues to use the same heart icon image path and unchanged sizing/positioning while applying the transparency fix.",
+      "acceptanceCriteria": [
+        "ValentinePage continues to reference the same image path for the icon set: \"/assets/generated/heart-icons-set.dim_256x256.png\".",
+        "No changes to the ValentinePage positioning/sizing classes for the icon image (only the underlying image transparency changes)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/__tests__/ValentinePage.heartIconReference.test.tsx",
+          "operation": "create",
+          "description": "Add a lightweight test that guards against accidental changes by asserting the ValentinePage heart icon <img> keeps src \"/assets/generated/heart-icons-set.dim_256x256.png\" and retains its current sizing/positioning className."
+        }
+      ]
+    }
+  ]
+}

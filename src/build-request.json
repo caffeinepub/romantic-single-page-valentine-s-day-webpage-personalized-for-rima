@@ -1,0 +1,52 @@
+{
+  "kind": "build_request",
+  "title": "Remove background from heart icon image on the post-Yes (Valentine) page",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-5",
+      "text": "Update the decorative heart icon image used on the page shown after clicking the “Yes” button (ValentinePage) so the icon background is fully transparent (no visible box/solid background) and the icons blend cleanly with the page background.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "please when i click to the yes bouton it shows another page and in this page there is some heart icons i want to remove the background of this icons"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On the ValentinePage (the page shown after clicking “Yes”), the decorative heart icon image renders with a transparent background (no solid/rectangular background visible).",
+        "Transparency is preserved in both light and dark mode overlays (no halo/solid matte around the image background)."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Keep the ValentinePage layout and existing asset references unchanged while applying the transparency fix (do not change the image src path, sizing, or spacing).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ]
+      },
+      "acceptanceCriteria": [
+        "ValentinePage continues to reference the same image path for the icon set: \"/assets/generated/heart-icons-set.dim_256x256.png\".",
+        "No changes to the ValentinePage positioning/sizing classes for the icon image (only the underlying image transparency changes)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not add backend functionality; this change must be handled entirely via frontend static assets.",
+    "Do not edit any files under frontend/src/components/ui or other immutable paths listed in SYSTEM_CONTEXT."
+  ],
+  "nonGoals": [
+    "Do not change the copy/text content of the Valentine pages.",
+    "Do not redesign the page or change animations; only remove the icon image background."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": [
+      "Remove the background to make it fully transparent (heart-icons-set.dim_256x256.png > heart-icons-set.dim_256x256.png)"
+    ]
+  }
+}

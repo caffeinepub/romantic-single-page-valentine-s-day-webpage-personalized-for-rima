@@ -1,0 +1,14 @@
+{
+  "frontend/src/App.tsx": "Main application component that manages state to conditionally render the Valentine question gate page first, then transitions to the Valentine page after user answers.",
+  "frontend/src/pages/ValentinePage.tsx": "Complete Valentine's Day page with hero section, romantic letter, and closing message, all personalized for \"My Gorgeous Rima\" with decorative heart imagery (now with transparent backgrounds) and responsive layout.",
+  "frontend/src/components/valentine/SectionShell.tsx": "Reusable layout wrapper component that provides consistent padding, max-width constraints, and responsive spacing for all page sections.",
+  "frontend/src/lib/utils.ts": "Utility function for merging Tailwind CSS classes using clsx and tailwind-merge.",
+  "frontend/src/index.css": "Global styles with romantic OKLCH color system (rose/blush/cream palette), custom font families (Playfair Display serif for headings, Inter for body), and fade-in animation.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with romantic rose color palette, custom font families, enhanced border radius options, and romantic shadow effects.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder file as no backend queries are required for this static Valentine's page.",
+  "frontend/src/pages/ValentineQuestionGatePage.tsx": "Valentine question gate page that asks \"Will you be my Valentine?\" with transparent heart decoration images above and below the question, displaying \"My Gorgeous Rima\" and featuring Yes/No buttons with playful interaction.",
+  "frontend/src/components/valentine/PlayfulNoButton.tsx": "Playful \"No\" button component that moves away when hovered or touched, changes text based on attempts, and eventually allows clicking after 5 attempts.",
+  "frontend/src/hooks/useAvoidingButtonPosition.ts": "Custom hook that calculates safe, bounded random positions for the avoiding button animation, ensuring it stays within viewport bounds with proper margins.",
+  "frontend/src/lib/valentineCopy.ts": "Centralized copy module that exports the recipient name constant \"My Gorgeous Rima\" for consistent use across the Valentine's app.",
+  "frontend/public/assets/generated/heart-icons-set.dim_256x256.png": "Transparent SVG image containing five decorative heart icons in rose color (#e11d48) arranged in a pattern (corners and center), with no background fill for seamless overlay on ValentinePage."
+}
